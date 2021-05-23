@@ -1,0 +1,14 @@
+.header {
+  border-bottom: 1px solid rgb(84, 84, 84, 0.7);
+  margin: 0 19px 38px;
+}
+@media screen and (min-width: 500px) {
+  .header {
+    margin: 0 100px 37px;
+  }
+}
+@media screen and (min-width: 1279px) {
+  .header {
+    margin: 0 200px 37px;
+  }
+}

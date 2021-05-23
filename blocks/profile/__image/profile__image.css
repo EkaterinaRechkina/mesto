@@ -1,0 +1,13 @@
+.profile__image {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 22px;
+}
+@media screen and (min-width: 1000px) {
+  .profile__image {
+    margin: 0 30px 0 200px;
+  }
+}

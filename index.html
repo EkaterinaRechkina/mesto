@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Проектная работа 4</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img src="./images/logo.svg" alt="Логотип" class="header__image" />
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img src="./images/Avatar.png" alt="Аватар" class="profile__image" />
+        <div class="profile__changeName">
+          <div class="profile__info">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__button-edit" type="button"></button>
+          </div>
+          <p class="profile__job">Исследователь океана</p>
+        </div>
+
+        <button class="profile__button-add" type="button"></button>
+      </section>
+      <section class="cards">
+        <article class="card">
+          <img src="./images/item1.png" alt="Фотография" class="card__image" />
+          <div class="card__description">
+            <h2 class="card__title">Карачаево</h2>
+            <button class="card__button-like" type="button"></button>
+          </div>
+        </article>
+        <article class="card">
+          <img src="./images/item2.png" alt="Фотография" class="card__image" />
+          <div class="card__description">
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button class="card__button-like" type="button"></button>
+          </div>
+        </article>
+        <article class="card">
+          <img src="./images/item3.png" alt="Фотография" class="card__image" />
+          <div class="card__description">
+            <h2 class="card__title">Домбай</h2>
+            <button class="card__button-like" type="button"></button>
+          </div>
+        </article>
+        <article class="card">
+          <img src="./images/item1.png" alt="Фотография" class="card__image" />
+          <div class="card__description">
+            <h2 class="card__title">Карачаево</h2>
+            <button class="card__button-like" type="button"></button>
+          </div>
+        </article>
+        <article class="card">
+          <img src="./images/item2.png" alt="Фотография" class="card__image" />
+          <div class="card__description">
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button class="card__button-like" type="button"></button>
+          </div>
+        </article>
+        <article class="card">
+          <img src="./images/item3.png" alt="Фотография" class="card__image" />
+          <div class="card__description">
+            <h2 class="card__title">Домбай</h2>
+            <button class="card__button-like" type="button"></button>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
+    </footer>
+
+    <form class="popup">
+      <div class="popup__container">
+        <a href="#" class="popup__close"
+          ><img src="./images/CloseIcon.png" alt="Закрытие окна" />
+        </a>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <p class="popup__input">
+          <input
+            class="popup__user"
+            type="text"
+            placeholder=""
+            name="userName"
+            value="Жак-Ив Кусто"
+            required
+          />
+        </p>
+        <p class="popup__input">
+          <input
+            class="popup__job"
+            type="text"
+            placeholder=""
+            name="userJob"
+            value="Исследователь океана"
+            required
+          />
+        </p>
+        <button class="popup__button" type="submit">Сохранить</button>
+      </div>
+    </form>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
