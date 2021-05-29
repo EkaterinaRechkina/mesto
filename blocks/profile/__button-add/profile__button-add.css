@@ -18,5 +18,13 @@
   .profile__button-add {
     width: 150px;
     justify-content: center;
+    margin-left: 140px;
+  }
+}
+@media screen and (min-width: 1279px) {
+  .profile__button-add {
+    width: 150px;
+    justify-content: center;
+    margin-left: 250px;
   }
 }

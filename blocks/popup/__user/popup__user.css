@@ -1,4 +1,7 @@
 .popup__user {
   border: none;
   outline: none;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
 }

@@ -7,6 +7,8 @@
 @media screen and (min-width: 500px) {
   .footer {
     margin: 0 100px 60px;
+    font-size: 18px;
+    line-height: 22px;
   }
 }
 @media screen and (min-width: 1279px) {
