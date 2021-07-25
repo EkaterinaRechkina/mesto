@@ -7,7 +7,7 @@
   height: 19px;
 }
 .card__button-like:hover {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: pointer;
 }
 /*.card__button-like_active {

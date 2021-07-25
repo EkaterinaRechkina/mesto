@@ -1,0 +1,4 @@
+.profile__change-name {
+  display: flex;
+  flex-direction: column;
+}

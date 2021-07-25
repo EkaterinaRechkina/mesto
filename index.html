@@ -14,7 +14,7 @@
     <main class="content">
       <section class="profile">
         <img src="./images/Avatar.png" alt="Аватар" class="profile__image" />
-        <div class="profile__changeName">
+        <div class="profile__change-name">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button class="profile__button-edit" type="button"></button>
@@ -73,35 +73,44 @@
       <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
 
-    <form class="popup">
-      <div class="popup__container">
-        <a href="#" class="popup__close"
-          ><img src="./images/CloseIcon.png" alt="Закрытие окна" />
-        </a>
+    <div class="popup">
+      <form class="popup__container popup__form" action="" name="popup">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <p class="popup__input">
-          <input
-            class="popup__user"
-            type="text"
-            placeholder=""
-            name="userName"
-            value="Жак-Ив Кусто"
-            required
-          />
-        </p>
-        <p class="popup__input">
-          <input
-            class="popup__job"
-            type="text"
-            placeholder=""
-            name="userJob"
-            value="Исследователь океана"
-            required
-          />
-        </p>
-        <button class="popup__button" type="submit">Сохранить</button>
-      </div>
-    </form>
+        <input
+          class="popup__input popup__input_edit_name"
+          type="text"
+          placeholder="Жак-Ив Кусто"
+          name="userName"
+          value=""
+          required
+          minlength="2"
+          maxlength="40"
+        />
+        <input
+          class="popup__input popup__input_edit_job"
+          type="text"
+          placeholder="Исследователь океана"
+          name="userJob"
+          value=""
+          required
+          minlength="2"
+          maxlength="40"
+          id="test"
+        />
+        <button
+          class="popup__button"
+          type="submit"
+          aria-label="Сохранить изменения"
+        >
+          Сохранить
+        </button>
+        <button
+          type="button"
+          class="popup__close"
+          aria-label="Закрыть попап"
+        ></button>
+      </form>
+    </div>
     <script src="./scripts/script.js"></script>
   </body>
 </html>
