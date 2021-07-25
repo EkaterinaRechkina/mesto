@@ -74,42 +74,44 @@
     </footer>
 
     <div class="popup">
-      <form class="popup__container popup__form" action="" name="popup">
+      <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input
-          class="popup__input popup__input_edit_name"
-          type="text"
-          placeholder="Жак-Ив Кусто"
-          name="userName"
-          value=""
-          required
-          minlength="2"
-          maxlength="40"
-        />
-        <input
-          class="popup__input popup__input_edit_job"
-          type="text"
-          placeholder="Исследователь океана"
-          name="userJob"
-          value=""
-          required
-          minlength="2"
-          maxlength="40"
-          id="test"
-        />
-        <button
-          class="popup__button"
-          type="submit"
-          aria-label="Сохранить изменения"
-        >
-          Сохранить
-        </button>
+        <form class="popup__form" action="post" name="popup">
+          <input
+            class="popup__input popup__input_edit_name"
+            type="text"
+            placeholder="Жак-Ив Кусто"
+            name="userName"
+            value=""
+            required
+            minlength="2"
+            maxlength="40"
+          />
+          <input
+            class="popup__input popup__input_edit_job"
+            type="text"
+            placeholder="Исследователь океана"
+            name="userJob"
+            value=""
+            required
+            minlength="2"
+            maxlength="40"
+            id="test"
+          />
+          <button
+            class="popup__button"
+            type="submit"
+            aria-label="Сохранить изменения"
+          >
+            Сохранить
+          </button>
+        </form>
         <button
           type="button"
           class="popup__close"
           aria-label="Закрыть попап"
         ></button>
-      </form>
+      </div>
     </div>
     <script src="./scripts/script.js"></script>
   </body>
