@@ -10,8 +10,3 @@
   visibility: hidden;
   opacity: 0;
 }
-@media screen and (max-width: 620px) {
-  .popup {
-    bottom: 300px;
-  }
-}
