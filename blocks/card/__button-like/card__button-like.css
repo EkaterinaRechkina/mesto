@@ -10,5 +10,11 @@
   opacity: 0.5;
   cursor: pointer;
 }
-/*.card__button-like_active {
-}*/
+.card__button-like_active {
+  background-image: url(../../../images/likeactive.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0px;
+  width: 22px;
+  height: 19px;
+}

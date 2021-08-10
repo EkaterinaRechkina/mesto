@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <title>Проектная работа 4</title>
+    <title>Проектная работа 5</title>
   </head>
   <body class="page">
     <header class="header">
@@ -25,48 +25,16 @@
         <button class="profile__button-add" type="button"></button>
       </section>
       <section class="cards">
-        <article class="card">
-          <img src="./images/item1.png" alt="Фотография" class="card__image" />
-          <div class="card__description">
-            <h2 class="card__title">Карачаево</h2>
-            <button class="card__button-like" type="button"></button>
+        <template id="card-template">
+          <div class="card">
+            <img src="" alt="Фотография" class="card__image" />
+            <button class="card__trash" type="button"></button>
+            <div class="card__description">
+              <h2 class="card__title"></h2>
+              <button class="card__button-like" type="button"></button>
+            </div>
           </div>
-        </article>
-        <article class="card">
-          <img src="./images/item2.png" alt="Фотография" class="card__image" />
-          <div class="card__description">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__button-like" type="button"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img src="./images/item3.png" alt="Фотография" class="card__image" />
-          <div class="card__description">
-            <h2 class="card__title">Домбай</h2>
-            <button class="card__button-like" type="button"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img src="./images/item1.png" alt="Фотография" class="card__image" />
-          <div class="card__description">
-            <h2 class="card__title">Карачаево</h2>
-            <button class="card__button-like" type="button"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img src="./images/item2.png" alt="Фотография" class="card__image" />
-          <div class="card__description">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__button-like" type="button"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img src="./images/item3.png" alt="Фотография" class="card__image" />
-          <div class="card__description">
-            <h2 class="card__title">Домбай</h2>
-            <button class="card__button-like" type="button"></button>
-          </div>
-        </article>
+        </template>
       </section>
     </main>
     <footer class="footer">
@@ -110,6 +78,44 @@
           type="button"
           class="popup__close"
           aria-label="Закрыть попап"
+        ></button>
+      </div>
+    </div>
+    <!--загрузка карточек-->
+    <div class="popup" id="card">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form" action="post" name="popup">
+          <input
+            class="popup__input popup__input_card-name"
+            type="text"
+            placeholder="Название"
+            name="cardName"
+            value=""
+            required
+            minlength="2"
+            maxlength="40"
+          />
+          <input
+            class="popup__input popup__input_card-img"
+            type="text"
+            placeholder="Ссылка на картинку"
+            name="cardImg"
+            value=""
+            required
+            minlength="2"
+            maxlength="40"
+            id="test"
+          />
+          <button class="popup__button" type="submit" aria-label="Создать">
+            Сохранить
+          </button>
+        </form>
+        <button
+          type="button"
+          class="popup__close"
+          aria-label="Закрыть попап"
+          id="close-card"
         ></button>
       </div>
     </div>
