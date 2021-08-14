@@ -104,7 +104,6 @@ function addCard(item) {
     
     card.querySelector('.card__title').textContent = item.title;
     card.querySelector('.card__image').src =item.link;
-    cards.prepend(card);
 
     card.querySelector('.card__trash').addEventListener('click', deleteCard)
     card.querySelector('.card__button-like').addEventListener('click', evt => {
@@ -131,7 +130,6 @@ function addCardFromPopup(evt) {
     };
     cards.prepend(addCard(cardData));  
     closeCard();
-    // evt.target.reset();
 
   }
   
