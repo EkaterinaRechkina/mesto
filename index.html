@@ -85,7 +85,11 @@
     <div class="popup" id="card">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form" action="post" name="popup">
+        <form
+          class="popup__form popup__form_add-card"
+          action="post"
+          name="popup"
+        >
           <input
             class="popup__input popup__input_card-name"
             type="text"
@@ -119,6 +123,12 @@
         ></button>
       </div>
     </div>
+    <div class="popup" id="popup_img">
+      <div class="popup__image-container">
+        <img class="popup__image" src="./images/Mozhaysk.jpg" alt="Никольский собор в Можайске">
+        <button class="popup__close-button" type="button"></button>
+        <p class="popup__description">Можайск</p>
+      </div>
     <script src="./scripts/script.js"></script>
   </body>
 </html>

@@ -119,20 +119,31 @@ function addCard(item) {
   //Загрузка карточек
 
   
-    const addCardNameInput = popupAdd.querySelector('.popup__input_card-name');
-    const addCardLinkInput = popupAdd.querySelector('.popup__input_card-img');
-    const addCardNameMain = popupAdd.querySelector('.card__description');
-    const addCardLinkMain = popupAdd.querySelector('.card__image');
+    const addCardNameInput = document.querySelector('.popup__input_card-name');
+    const addCardLinkInput = document.querySelector('.popup__input_card-img');
+    const cardAddForm = document.querySelector('.popup__form_add-card');
 
 function addCardFromPopup(evt) {
     evt.preventDefault()
-  
-    let cardName = addCardNameInput.value;
-    let cardLink = addCardLinkInput.value;
-    addCardNameMain.textContent = cardName;
-    addCardLinkMain.textContent = cardLink;
+    const cardData = {
+      title: addCardNameInput.value,
+      link: addCardLinkInput.value
+    };
+    cards.prepend(addCard(cardData));  
+    closeCard();
+    // evt.target.reset();
 
-    closeCard()
   }
   
   cardAddForm.addEventListener('submit', addCardFromPopup)
+
+//Превью картинки
+
+  const popupImg = document.querySelector('.popup_img');
+
+  function handlePreviewPicture(title, img) {
+    open(popupImg);
+    popupImg.querySelector('.popup__description').textContent = title.textContent;
+    popupImg.querySelector('.popup__image').alt = img.alt;
+    popupImg.querySelector('.popup__image').src = img.src;
+  }
