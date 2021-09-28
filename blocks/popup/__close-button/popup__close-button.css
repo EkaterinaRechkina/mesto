@@ -6,8 +6,8 @@
   background-color: transparent;
   border: none;
   position: absolute;
-  top: 192px;
-  right: 457px;
+  top: -39px;
+  right: -38px;
   padding: 0;
   cursor: pointer;
 }
@@ -18,16 +18,14 @@
 
 @media screen and (max-width: 620px) {
   .popup__close-button {
-    width: 20px;
-    height: 20px;
+    /* top: -39px;
+    right: -38px; */
     background-image: url(../../../images/close_s.svg);
-    top: 303px;
-    right: 14px;
   }
 }
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   .popup__close-button {
-    top: 295px;
-    right: 45px;
+    top: -39px;
+    right: -38px;
   }
-}
+} */

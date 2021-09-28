@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Проектная работа 5</title>
-  </head>
-  <body class="page">
+</head>
+
+<body class="page">
     <header class="header">
-      <img src="./images/logo.svg" alt="Логотип" class="header__image" />
+        <img src="./images/logo.svg" alt="Логотип" class="header__image" />
     </header>
     <main class="content">
-      <section class="profile">
-        <img src="./images/Avatar.png" alt="Аватар" class="profile__image" />
-        <div class="profile__change-name">
-          <div class="profile__info">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__button-edit" type="button"></button>
-          </div>
-          <p class="profile__job">Исследователь океана</p>
-        </div>
+        <section class="profile">
+            <img src="./images/image.png" alt="Аватар" class="profile__image" />
+            <div class="profile__info">
+                <div class="test">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="profile__button-edit" type="button"></button>
+                </div>
 
-        <button class="profile__button-add" type="button"></button>
-      </section>
-      <section class="cards">
-        <template id="card-template">
+                <p class="profile__job">Исследователь океана</p>
+            </div>
+
+
+
+
+
+            <button class="profile__button-add" type="button"></button>
+        </section>
+        <section class="cards">
+            <template id="card-template">
           <div class="card">
             <img src="" alt="Фотография" class="card__image" />
             <button class="card__trash" type="button"></button>
@@ -35,100 +42,46 @@
             </div>
           </div>
         </template>
-      </section>
+        </section>
     </main>
     <footer class="footer">
-      <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
+        <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
-      <div class="popup__container">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" action="post" name="popup">
-          <input
-            class="popup__input popup__input_edit_name"
-            type="text"
-            placeholder="Жак-Ив Кусто"
-            name="userName"
-            value=""
-            required
-            minlength="2"
-            maxlength="40"
-          />
-          <input
-            class="popup__input popup__input_edit_job"
-            type="text"
-            placeholder="Исследователь океана"
-            name="userJob"
-            value=""
-            required
-            minlength="2"
-            maxlength="40"
-            id="test"
-          />
-          <button
-            class="popup__button"
-            type="submit"
-            aria-label="Сохранить изменения"
-          >
+    <div class="popup" id="profile">
+        <div class="popup__container">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form" action="post" name="popup">
+                <input class="popup__input popup__input_edit_name" type="text" placeholder="Жак-Ив Кусто" name="userName" value="" required minlength="2" maxlength="40" />
+                <input class="popup__input popup__input_edit_job" type="text" placeholder="Исследователь океана" name="userJob" value="" required minlength="2" maxlength="40" id="test" />
+                <button class="popup__button" type="submit" aria-label="Сохранить изменения">
             Сохранить
           </button>
-        </form>
-        <button
-          type="button"
-          class="popup__close"
-          aria-label="Закрыть попап"
-        ></button>
-      </div>
+            </form>
+            <button type="button" class="popup__close" aria-label="Закрыть попап"></button>
+        </div>
     </div>
     <!--загрузка карточек-->
     <div class="popup" id="card">
-      <div class="popup__container">
-        <h2 class="popup__title">Новое место</h2>
-        <form
-          class="popup__form popup__form_add-card"
-          action="post"
-          name="popup"
-        >
-          <input
-            class="popup__input popup__input_card-name"
-            type="text"
-            placeholder="Название"
-            name="cardName"
-            value=""
-            required
-            minlength="2"
-            maxlength="40"
-          />
-          <input
-            class="popup__input popup__input_card-img"
-            type="text"
-            placeholder="Ссылка на картинку"
-            name="cardImg"
-            value=""
-            required
-            minlength="2"
-            maxlength="40"
-            id="test"
-          />
-          <button class="popup__button" type="submit" aria-label="Создать">
+        <div class="popup__container">
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form popup__form_add-card" action="post" name="popup">
+                <input class="popup__input popup__input_card-name" type="text" placeholder="Название" name="cardName" value="" required minlength="2" maxlength="40" />
+                <input class="popup__input popup__input_card-img" type="text" placeholder="Ссылка на картинку" name="cardImg" value="" required minlength="2" maxlength="" id="test" />
+                <button class="popup__button" type="submit" aria-label="Создать">
             Сохранить
           </button>
-        </form>
-        <button
-          type="button"
-          class="popup__close"
-          aria-label="Закрыть попап"
-          id="close-card"
-        ></button>
-      </div>
+            </form>
+            <button type="button" class="popup__close" aria-label="Закрыть попап" id="close-card"></button>
+        </div>
     </div>
-    <div class="popup" id="popup_img">
-      <div class="popup__image-container">
-        <img class="popup__image" src="" alt="Картинка">
-        <button class="popup__close-button" type="button"></button>
-        <p class="popup__description"></p>
-      </div>
-    <script src="./scripts/script.js"></script>
-  </body>
+    <div class="popup" id="popup_preview">
+        <div class="popup__image-container">
+            <img class="popup__image" src="" alt="Картинка">
+            <button class="popup__close-button" type="button"></button>
+            <p class="popup__description"></p>
+        </div>
+        <script src="./scripts/script.js"></script>
+</body>
+
 </html>
