@@ -6,9 +6,8 @@
     width: 18px;
     height: 18px;
     border: 1px solid #fff;
-    margin-left: 15px;
     cursor: pointer;
-    /* align-items: center; */
+    align-self: center;
 }
 
 .profile__button-edit:hover {
@@ -19,6 +18,5 @@
     .profile__button-edit {
         width: 24px;
         height: 24px;
-        align-items: center;
     }
 }

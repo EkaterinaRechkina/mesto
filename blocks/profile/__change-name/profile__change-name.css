@@ -1,4 +1,12 @@
-/* .profile__change-name {
-  display: flex;
-  flex-direction: row;
-} */
+.profile__change-name {
+    display: grid;
+    grid-template-rows: repeat(2, max-content);
+}
+
+@media screen and (min-width: 1000px) {
+    .profile__change-name {
+        gap: 0px 42px;
+        grid-template-columns: repeat(2, max-content);
+        align-self: center;
+    }
+}
