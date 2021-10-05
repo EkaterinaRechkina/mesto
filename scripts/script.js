@@ -109,8 +109,8 @@ function createCard(item) {
 }
 //Добавление карточки в разметку
 function renderCard(item) {
-    const test = createCard(item);
-    cards.prepend(test);
+    const newCard = createCard(item);
+    cards.prepend(newCard);
 }
 
 initialCards.forEach(renderCard);
