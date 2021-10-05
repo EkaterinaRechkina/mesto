@@ -104,6 +104,7 @@ function createCard(item) {
         evt.target.classList.toggle("card__button-like_active");
     });
     imgCard.addEventListener("click", previewCard);
+    return card;
     // cards.prepend(card);
 }
 //Добавление карточки в разметку
