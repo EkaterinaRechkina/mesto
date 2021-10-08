@@ -2,7 +2,7 @@
 //userPopup
 const profilePopupEdit = document.querySelector(".profile__button-edit");
 const popupProfile = document.querySelector("#profile");
-const userPopupClose = document.querySelector(".popup__close");
+const generalPopupClose = document.querySelectorAll(".popup__close");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__job");
 const formElementProfile = document.querySelector(".popup__form");
@@ -11,13 +11,13 @@ const jobInput = document.querySelector(".popup__input_edit_job");
 //cardPopup
 const popupCard = document.querySelector("#card");
 const cardAdd = document.querySelector(".profile__button-add");
-const closeCardPopupButton = document.querySelector("#close-card");
 const popupPreview = document.querySelector("#popup_preview");
-const closePrevievPopup = document.querySelector(".popup__close-button");
 const cards = document.querySelector(".cards");
 const addCardNameInput = document.querySelector(".popup__input_card-name");
 const addCardLinkInput = document.querySelector(".popup__input_card-img");
 const cardAddForm = document.querySelector(".popup__form_add-card");
+const popupDescription = document.querySelector(".popup__description");
+const popupImage = document.querySelector(".popup__image");
 const initialCards = [{
         title: "Архыз",
         link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
@@ -49,12 +49,6 @@ function openPopup(popupElement) {
     popupElement.classList.add("popup_opened");
 }
 
-function openProfilePopup(element) {
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileDescription.textContent;
-    openPopup(popupProfile);
-}
-
 function closePopup(popupElement) {
     popupElement.classList.remove("popup_opened");
 }
@@ -78,13 +72,12 @@ function deleteCard(evt) {
 //Превью картинки
 
 function previewCard(evt) {
-    // const card = evt.currentTarget;
     const card = evt.target.closest(".card");
-    const titleCard = card.querySelector(".card__description").textContent;
-    const imgCard = card.querySelector(".card__image").src;
-    popupPreview.querySelector(".popup__description").textContent = titleCard;
-    popupPreview.querySelector(".popup__image").alt = titleCard;
-    popupPreview.querySelector(".popup__image").src = imgCard;
+    const titleCard = evt.target.alt;
+    const imgCard = evt.target.src;
+    popupDescription.textContent = titleCard;
+    popupImage.alt = titleCard;
+    popupImage.src = imgCard;
     openPopup(popupPreview);
 }
 
@@ -95,9 +88,8 @@ function createCard(item) {
     const card = elementTemplate.querySelector(".card").cloneNode(true);
     const imgCard = card.querySelector(".card__image");
     card.querySelector(".card__title").textContent = item.title;
-    card.querySelector(".card__image").src = item.link;
-    card.querySelector(".card__image").alt = item.alt;
-
+    imgCard.src = item.link;
+    imgCard.alt = item.title;
     card.querySelector(".card__trash").addEventListener("click", deleteCard);
     card.querySelector(".card__button-like").addEventListener("click", (evt) => {
         evt.stopPropagation();
@@ -105,16 +97,30 @@ function createCard(item) {
     });
     imgCard.addEventListener("click", previewCard);
     return card;
-    // cards.prepend(card);
 }
+
 //Добавление карточки в разметку
 function renderCard(item) {
     const newCard = createCard(item);
     cards.prepend(newCard);
 }
 
-initialCards.forEach(renderCard);
+//Отчистить инпуты
+
+function clearProfile(item) {
+    nameInput.value = "";
+    jobInput.value = "";
+}
+
+function clearCard(item) {
+    addCardNameInput.value = "";
+    addCardLinkInput.value = "";
+}
+profilePopupEdit.addEventListener("click", (evt) => clearProfile(popupProfile));
+cardAdd.addEventListener("click", (evt) => clearCard(popupCard));
+
 //Загрузка карточек
+initialCards.forEach(renderCard);
 
 function addCardFromPopup(evt) {
     evt.preventDefault();
@@ -123,14 +129,21 @@ function addCardFromPopup(evt) {
         link: addCardLinkInput.value,
     };
     renderCard(cardData);
+
     closePopup(popupCard);
 }
+
 cardAdd.addEventListener("click", (evt) => openPopup(popupCard));
-closeCardPopupButton.addEventListener("click", (evt) => closePopup(popupCard));
-profilePopupEdit.addEventListener("click", (evt) =>
-    openProfilePopup(popupProfile)
-);
-userPopupClose.addEventListener("click", (evt) => closePopup(popupProfile));
+// closeCardPopupButton.addEventListener("click", (evt) => closePopup(popupCard));
+profilePopupEdit.addEventListener("click", (evt) => openPopup(popupProfile));
+
+//общее закрытие. info на будущее, если нужно найти несколько элементов, например с одним классом, вернется коллекция элементов и для этого используем перебор
+
+[].forEach.call(generalPopupClose, function(el) {
+    el.addEventListener("click", (evt) => closePopup(popupCard));
+    el.addEventListener("click", (evt) => closePopup(popupProfile));
+    el.addEventListener("click", (evt) => closePopup(popupPreview));
+});
+
 formElementProfile.addEventListener("submit", formSubmitHandlerProfilePopup);
 cardAddForm.addEventListener("submit", addCardFromPopup);
-closePrevievPopup.addEventListener("click", (evt) => closePopup(popupPreview));
