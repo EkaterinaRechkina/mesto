@@ -2,7 +2,7 @@
 //userPopup
 const profilePopupEdit = document.querySelector(".profile__button-edit");
 const popupProfile = document.querySelector("#profile");
-const generalPopupClose = document.querySelectorAll(".popup__close");
+const popupCloseBtns = document.querySelectorAll(".popup__close");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__job");
 const formElementProfile = document.querySelector(".popup__form");
@@ -47,6 +47,12 @@ const initialCards = [{
 
 function openPopup(popupElement) {
     popupElement.classList.add("popup_opened");
+}
+
+function openProfilePopup(element) {
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileDescription.textContent;
+    openPopup(popupProfile);
 }
 
 function closePopup(popupElement) {
@@ -107,17 +113,10 @@ function renderCard(item) {
 
 //Отчистить инпуты
 
-function clearProfile(item) {
-    nameInput.value = "";
-    jobInput.value = "";
-}
-
 function clearCard(item) {
     addCardNameInput.value = "";
     addCardLinkInput.value = "";
 }
-profilePopupEdit.addEventListener("click", (evt) => clearProfile(popupProfile));
-cardAdd.addEventListener("click", (evt) => clearCard(popupCard));
 
 //Загрузка карточек
 initialCards.forEach(renderCard);
@@ -129,21 +128,23 @@ function addCardFromPopup(evt) {
         link: addCardLinkInput.value,
     };
     renderCard(cardData);
-
     closePopup(popupCard);
+    clearCard(popupCard);
 }
 
 cardAdd.addEventListener("click", (evt) => openPopup(popupCard));
-// closeCardPopupButton.addEventListener("click", (evt) => closePopup(popupCard));
-profilePopupEdit.addEventListener("click", (evt) => openPopup(popupProfile));
 
-//общее закрытие. info на будущее, если нужно найти несколько элементов, например с одним классом, вернется коллекция элементов и для этого используем перебор
+profilePopupEdit.addEventListener("click", (evt) =>
+    openProfilePopup(popupProfile)
+);
 
-[].forEach.call(generalPopupClose, function(el) {
-    el.addEventListener("click", (evt) => closePopup(popupCard));
-    el.addEventListener("click", (evt) => closePopup(popupProfile));
-    el.addEventListener("click", (evt) => closePopup(popupPreview));
+//общее закрытие.
+
+popupCloseBtns.forEach((btn) => {
+    btn.addEventListener("click", (evt) => {
+        const popup = evt.target.closest(".popup");
+        closePopup(popup);
+    });
 });
-
 formElementProfile.addEventListener("submit", formSubmitHandlerProfilePopup);
 cardAddForm.addEventListener("submit", addCardFromPopup);
