@@ -148,3 +148,11 @@ popupCloseBtns.forEach((btn) => {
 });
 formElementProfile.addEventListener("submit", formSubmitHandlerProfilePopup);
 cardAddForm.addEventListener("submit", addCardFromPopup);
+
+//закрытие попапа ESC
+
+popupProfile.addEventListener("keydown", function(evt) {
+    if (evt.keyCode == 27) {
+        closePopup(popup);
+    }
+});
