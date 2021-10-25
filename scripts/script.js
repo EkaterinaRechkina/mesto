@@ -151,8 +151,35 @@ cardAddForm.addEventListener("submit", addCardFromPopup);
 
 //закрытие попапа ESC
 
-popupProfile.addEventListener("keydown", function(evt) {
-    if (evt.keyCode == 27) {
-        closePopup(popup);
-    }
-});
+// popupProfile.addEventListener("keydown", function(evt) {
+//     if (evt.keyCode == 27) {
+//         closePopup(popup);
+//     }
+// });
+
+//Валидация форм
+
+init();
+
+function init() {
+    const forms = [...document.querySelectorAll(".popup__form")];
+
+    forms.forEach((form) => {
+        const inputs = [...form.querySelectorAll(".popup__input")];
+        inputs.forEach((input) => {
+            input.addEventListener("input", (event) => {
+                const element = event.target;
+                // console.log(element);
+                const errorContainer = document.querySelector(`#${element.id}-error`);
+                console.log(errorContainer);
+                errorContainer.textContent = element.validationMessage;
+
+                if (element.validity.valid) {
+                    element.classList.remove("popup__input_state_invalid");
+                } else {
+                    element.classList.add("popup__input_state_invalid");
+                }
+            });
+        });
+    });
+}

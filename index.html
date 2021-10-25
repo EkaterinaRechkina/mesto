@@ -63,9 +63,9 @@
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form popup__form_add-card" action="post" name="popup" novalidate>
-                <input class="popup__input popup__input_card-name" type="text" placeholder="Название" name="cardName" value="" required minlength="2" maxlength="30" />
+                <input required class="popup__input popup__input_card-name" type="text" placeholder="Название" name="cardName" minlength="2" maxlength="30" />
                 <span id="card-error" class="error"></span>
-                <input class="popup__input popup__input_card-img" type="url" placeholder="Ссылка на картинку" name="cardImg" value="" required />
+                <input required class="popup__input popup__input_card-img" type="url" placeholder="Ссылка на картинку" name="cardImg" />
                 <span id="img-error" class="error"></span>
                 <button class="popup__button" type="submit" aria-label="Создать">
             Сохранить
