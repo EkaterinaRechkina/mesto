@@ -47,6 +47,18 @@ const initialCards = [{
 
 function openPopup(popupElement) {
     popupElement.classList.add("popup_opened");
+    document.addEventListener("keyup", handleEscUp);
+    popupProfile.addEventListener("click", overlayClose);
+    popupCard.addEventListener("click", overlayClose);
+    popupPreview.addEventListener("click", overlayClose);
+    enableValidation({
+        formSelector: ".popup__form",
+        inputSelector: ".popup__input",
+        submitButtonSelector: ".popup__button",
+        inactiveButtonClass: "popup__button_disabled",
+        inputErrorClass: "popup__input_type_error",
+        errorClass: "popup__error_visible",
+    });
 }
 
 function openProfilePopup(element) {
@@ -57,6 +69,10 @@ function openProfilePopup(element) {
 
 function closePopup(popupElement) {
     popupElement.classList.remove("popup_opened");
+    document.removeEventListener("keyup", handleEscUp);
+    popupProfile.removeEventListener("click", overlayClose);
+    popupCard.addEventListener("click", overlayClose);
+    popupPreview.addEventListener("click", overlayClose);
 }
 
 function formSubmitHandlerProfilePopup(evt) {
@@ -67,7 +83,20 @@ function formSubmitHandlerProfilePopup(evt) {
     profileDescription.textContent = aboutUser;
     closePopup(popupProfile);
 }
-
+//закрытие через Esc
+const handleEscUp = (event) => {
+    event.preventDefault();
+    const activePopup = document.querySelector(".popup_opened");
+    if (event.key === "Escape") {
+        closePopup(activePopup);
+    }
+};
+//Закрытие через оверлей
+function overlayClose(event) {
+    if (event.target === event.currentTarget) {
+        closePopup(event.currentTarget);
+    }
+}
 //удаление карточки
 function deleteCard(evt) {
     evt.stopPropagation();
@@ -148,38 +177,3 @@ popupCloseBtns.forEach((btn) => {
 });
 formElementProfile.addEventListener("submit", formSubmitHandlerProfilePopup);
 cardAddForm.addEventListener("submit", addCardFromPopup);
-
-//закрытие попапа ESC
-
-// popupProfile.addEventListener("keydown", function(evt) {
-//     if (evt.keyCode == 27) {
-//         closePopup(popup);
-//     }
-// });
-
-//Валидация форм
-
-init();
-
-function init() {
-    const forms = [...document.querySelectorAll(".popup__form")];
-
-    forms.forEach((form) => {
-        const inputs = [...form.querySelectorAll(".popup__input")];
-        inputs.forEach((input) => {
-            input.addEventListener("input", (event) => {
-                const element = event.target;
-                // console.log(element);
-                const errorContainer = document.querySelector(`#${element.id}-error`);
-                console.log(errorContainer);
-                errorContainer.textContent = element.validationMessage;
-
-                if (element.validity.valid) {
-                    element.classList.remove("popup__input_state_invalid");
-                } else {
-                    element.classList.add("popup__input_state_invalid");
-                }
-            });
-        });
-    });
-}
