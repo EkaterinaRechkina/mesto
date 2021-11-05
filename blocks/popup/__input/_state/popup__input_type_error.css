@@ -1,3 +1,8 @@
 .popup__input_type_error {
     border-bottom: 2px solid red;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
 }

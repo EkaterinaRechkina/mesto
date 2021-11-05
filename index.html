@@ -46,43 +46,96 @@
     <div class="popup popup popup_type_profile" id="profile">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form popup__form_profile" action="post" name="popup" novalidate>
+            <form class="popup__form popup__form_profile" action="post" name="popup">
                 <input id="name" class="popup__input popup__input_edit_name" type="text" placeholder="Жак-Ив Кусто" name="userName" value="" required minlength="2" maxlength="40" />
-                <span id="name-error" class="error"></span>
-                <input id="job" class="popup__input popup__input_edit_job" type="text" placeholder="Исследователь океана" name="userJob" value="" required minlength="2" maxlength="200" id="test" />
-                <span id="job-error" class="error"></span>
-                <button class="popup__button" type="submit" aria-label="Сохранить изменения">
+                <span id="name-error" class="error">Необходимо заполнить данное поле</span
+          >
+          <input
+            id="job"
+            class="popup__input popup__input_edit_job"
+            type="text"
+            placeholder="Исследователь океана"
+            name="userJob"
+            value=""
+            required
+            minlength="2"
+            maxlength="200"
+            id="test"
+          />
+          <span id="job-error" class="error"
+            >Необходимо заполнить данное поле</span
+          >
+          <button
+            class="popup__button"
+            type="submit"
+            aria-label="Сохранить изменения"
+          >
             Сохранить
           </button>
-            </form>
-            <button type="button" class="popup__close" aria-label="Закрыть попап"></button>
-        </div>
+        </form>
+        <button
+          type="button"
+          class="popup__close"
+          aria-label="Закрыть попап"
+        ></button>
+      </div>
     </div>
     <!--загрузка карточек-->
-    <div class="popup popup popup_type_card-add" id="card">
-        <div class="popup__container">
-            <h2 class="popup__title">Новое место</h2>
-            <form class="popup__form popup__form_add-card" action="post" name="popup" novalidate>
-                <input id="title" required class="popup__input popup__input_card-name" type="text" placeholder="Название" name="cardName" minlength="2" maxlength="30" />
-                <span id="title-error" class="error"></span>
-                <input id="img" required class="popup__input popup__input_card-img" type="url" placeholder="Ссылка на картинку" name="cardImg" />
-                <span id="img-error" class="error"></span>
-                <button class="popup__button" type="submit" aria-label="Создать">
+    <div class="popup popup_type_card-add" id="card">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое место</h2>
+        <form
+          class="popup__form popup__form_add-card"
+          action="post"
+          name="popup"
+        >
+          <input
+            id="title"
+            required
+            class="popup__input popup__input_card-name"
+            type="text"
+            placeholder="Название"
+            name="cardName"
+            minlength="2"
+            maxlength="30"
+          />
+          <span id="title-error" class="error"
+            >Необходимо заполнить данное поле</span
+          >
+          <input
+            id="img"
+            required
+            class="popup__input popup__input_card-img"
+            type="url"
+            placeholder="Ссылка на картинку"
+            name="cardImg"
+          />
+          <span id="img-error" class="error"
+            >Необходимо заполнить данное поле</span
+          >
+          <button class="popup__button" type="submit" aria-label="Создать">
             Сохранить
           </button>
-            </form>
-            <button type="button" class="popup__close" aria-label="Закрыть попап"></button>
-        </div>
+        </form>
+        <button
+          type="button"
+          class="popup__close"
+          aria-label="Закрыть попап"
+        ></button>
+      </div>
     </div>
-    <div class="popup popup popup_type_picture" id="popup_preview">
-        <div class="popup__image-container">
-            <img class="popup__image" src="#" alt="Картинка" />
-            <button class="popup__close" type="button" aria-label="Закрыть попап"></button>
-            <p class="popup__description"></p>
-        </div>
+    <div class="popup popup_type_picture" id="popup_preview">
+      <div class="popup__image-container">
+        <img class="popup__image" src="#" alt="Картинка" />
+        <button
+          class="popup__close"
+          type="button"
+          aria-label="Закрыть попап"
+        ></button>
+        <p class="popup__description"></p>
+      </div>
     </div>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/validate.js"></script>
-</body>
-
+  </body>
 </html>
