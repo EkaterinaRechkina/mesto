@@ -1,3 +1,12 @@
+enableValidation({
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+});
+
 function enableValidation(options) {
     const popupForms = [...document.querySelectorAll(options.formSelector)];
     popupForms.forEach(function(popupForms) {

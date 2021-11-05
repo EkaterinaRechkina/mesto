@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <title>Проектная работа 5</title>
+    <title>Проектная работа 6</title>
 </head>
 
 <body class="page">
@@ -43,13 +43,13 @@
         <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup" id="profile">
+    <div class="popup popup popup_type_profile" id="profile">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" action="post" name="popup" novalidate>
-                <input class="popup__input popup__input_edit_name" type="text" placeholder="Жак-Ив Кусто" name="userName" value="" required minlength="2" maxlength="40" />
+            <form class="popup__form popup__form_profile" action="post" name="popup" novalidate>
+                <input id="name" class="popup__input popup__input_edit_name" type="text" placeholder="Жак-Ив Кусто" name="userName" value="" required minlength="2" maxlength="40" />
                 <span id="name-error" class="error"></span>
-                <input class="popup__input popup__input_edit_job" type="text" placeholder="Исследователь океана" name="userJob" value="" required minlength="2" maxlength="200" id="test" />
+                <input id="job" class="popup__input popup__input_edit_job" type="text" placeholder="Исследователь океана" name="userJob" value="" required minlength="2" maxlength="200" id="test" />
                 <span id="job-error" class="error"></span>
                 <button class="popup__button" type="submit" aria-label="Сохранить изменения">
             Сохранить
@@ -59,13 +59,13 @@
         </div>
     </div>
     <!--загрузка карточек-->
-    <div class="popup" id="card">
+    <div class="popup popup popup_type_card-add" id="card">
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form popup__form_add-card" action="post" name="popup" novalidate>
-                <input required class="popup__input popup__input_card-name" type="text" placeholder="Название" name="cardName" minlength="2" maxlength="30" />
-                <span id="card-error" class="error"></span>
-                <input required class="popup__input popup__input_card-img" type="url" placeholder="Ссылка на картинку" name="cardImg" />
+                <input id="title" required class="popup__input popup__input_card-name" type="text" placeholder="Название" name="cardName" minlength="2" maxlength="30" />
+                <span id="title-error" class="error"></span>
+                <input id="img" required class="popup__input popup__input_card-img" type="url" placeholder="Ссылка на картинку" name="cardImg" />
                 <span id="img-error" class="error"></span>
                 <button class="popup__button" type="submit" aria-label="Создать">
             Сохранить
@@ -74,7 +74,7 @@
             <button type="button" class="popup__close" aria-label="Закрыть попап"></button>
         </div>
     </div>
-    <div class="popup" id="popup_preview">
+    <div class="popup popup popup_type_picture" id="popup_preview">
         <div class="popup__image-container">
             <img class="popup__image" src="#" alt="Картинка" />
             <button class="popup__close" type="button" aria-label="Закрыть попап"></button>
