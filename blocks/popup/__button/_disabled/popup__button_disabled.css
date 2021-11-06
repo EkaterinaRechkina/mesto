@@ -10,3 +10,7 @@
     line-height: 22px;
     /* visibility: hidden; */
 }
+
+.popup__button_disabled:hover {
+    cursor: default;
+}

@@ -1,7 +1,7 @@
 "use strict";
 
 //userPopup
-const popup = [...document.querySelectorAll(".popup")];
+// const popup = [...document.querySelectorAll(".popup")];
 const profilePopupEdit = document.querySelector(".profile__button-edit");
 const popupProfile = document.querySelector(".popup_type_profile");
 const popupCloseBtns = document.querySelectorAll(".popup__close");
@@ -51,14 +51,16 @@ const initialCards = [{
 function openPopup(popupElement) {
     popupElement.classList.add("popup_opened");
     document.addEventListener("keyup", handleEscUp);
-    popup.forEach((btn) => {
-        btn.addEventListener("click", overlayClose);
-    });
 }
+
+popupProfile.addEventListener("click", overlayClose);
+popupCard.addEventListener("click", overlayClose);
+popupPreview.addEventListener("click", overlayClose);
 
 function openProfilePopup() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileDescription.textContent;
+
     openPopup(popupProfile);
 }
 
@@ -87,10 +89,11 @@ const handleEscUp = (event) => {
 function overlayClose(event) {
     if (event.target === event.currentTarget) {
         closePopup(event.currentTarget);
+    } else {
+        popupProfile.addEventListener("click", overlayClose);
+        popupCard.addEventListener("click", overlayClose);
+        popupPreview.addEventListener("click", overlayClose);
     }
-    popup.forEach((btn) => {
-        btn.addEventListener("click", overlayClose);
-    });
 }
 //удаление карточки
 function deleteCard(evt) {
