@@ -52,12 +52,14 @@ function openPopup(popupElement) {
     popupElement.classList.add("popup_opened");
     document.addEventListener("keyup", handleEscUp);
     const form = popupElement.querySelector("form");
-    setSubmitButtonState({
-            submitButtonSelector: ".popup__button",
-            inactiveButtonClass: "popup__button_disabled",
-        },
-        form
-    );
+    if (form) {
+        setSubmitButtonState({
+                submitButtonSelector: ".popup__button",
+                inactiveButtonClass: "popup__button_disabled",
+            },
+            form
+        );
+    }
 }
 
 popupProfile.addEventListener("click", overlayClose);
