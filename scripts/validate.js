@@ -60,8 +60,9 @@ function heandelFormInput(options, event) {
 
 function setSubmitButtonState(options, popupForm) {
     const button = popupForm.querySelector(options.submitButtonSelector);
-    button.disabled = !popupForm.checkValidity();
-    if (!popupForm.checkValidity()) {
+    const isValid = popupForm.checkValidity();
+    button.disabled = !isValid;
+    if (!isValid) {
         button.classList.add(options.inactiveButtonClass);
     } else {
         button.classList.remove(options.inactiveButtonClass);
