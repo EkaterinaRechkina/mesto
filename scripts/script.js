@@ -52,14 +52,6 @@ function openPopup(popupElement) {
     popupElement.classList.add("popup_opened");
     document.addEventListener("keyup", handleEscUp);
     const form = popupElement.querySelector("form");
-    if (form) {
-        setSubmitButtonState({
-                submitButtonSelector: ".popup__button",
-                inactiveButtonClass: "popup__button_disabled",
-            },
-            form
-        );
-    }
 }
 
 popupProfile.addEventListener("click", overlayClose);
@@ -98,10 +90,6 @@ const handleEscUp = (event) => {
 function overlayClose(event) {
     if (event.target === event.currentTarget) {
         closePopup(event.currentTarget);
-    } else {
-        popupProfile.addEventListener("click", overlayClose);
-        popupCard.addEventListener("click", overlayClose);
-        popupPreview.addEventListener("click", overlayClose);
     }
 }
 //удаление карточки
@@ -184,3 +172,13 @@ popupCloseBtns.forEach((btn) => {
 });
 formElementProfile.addEventListener("submit", formSubmitHandlerProfilePopup);
 cardAddForm.addEventListener("submit", addCardFromPopup);
+
+cardAdd.addEventListener("click", () => {
+    setSubmitButtonState({
+            submitButtonSelector: ".popup__button",
+            inactiveButtonClass: "popup__button_disabled",
+        },
+        cardAddForm
+    );
+    openPopup(popupCard);
+});
